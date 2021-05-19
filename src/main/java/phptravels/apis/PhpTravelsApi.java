@@ -14,7 +14,7 @@ import utils.PropertiesReader;
 import utils.ApiActions.RequestType;
 
 public class PhpTravelsApi {
-    String baseUrl = PropertiesReader.getProperty("automationPractice.properties", "phptravels.baseuri");
+    String baseUrl = PropertiesReader.getProperty("automationChallenge.properties", "phptravels.baseuri");
     ApiActions api = new ApiActions(baseUrl);
 
     // Expected status codes
