@@ -1,0 +1,35 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: CI Live Project Tests on Ubuntu
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Test on Ubuntu
+    runs-on: [ubuntu-latest]
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 15
+      uses: actions/setup-java@v2
+      with:
+        java-version: 15
+        distribution: 'zulu'
+    - name: Set up Native Selenium Grid with one hub and four Chrome nodes 
+      run: docker-compose -f src/main/resources/docker-compose_native.yml up --scale chrome=4 --remove-orphans -d
+    - name: Check running containers
+      run: docker ps
+    - name: Run tests - Chrome Headless
+      continue-on-error: true
+      run: mvn -Dtest=phptravels.gui.tests.*Test test
+    - name: ExtentReports HTML Test Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: ExtentReports HTML Test Report
+        path: "ExtentReports.html"
