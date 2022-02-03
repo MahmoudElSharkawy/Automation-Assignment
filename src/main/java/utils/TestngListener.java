@@ -20,7 +20,7 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
     @Override
     public void onStart(ISuite suite) {
 	System.out.println("\n" + "**********************************************");
-	System.out.println("Starting Test Suite; By Mahmoud El-Sharkawy! *");
+	System.out.println("Starting Test Suite; By Mahmoud ElSharkawy! *");
 	System.out.println("**********************************************" + "\n");
 	ExtentReport.initReports();
     }
@@ -28,7 +28,7 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
     @Override
     public void onFinish(ISuite suite) {
 	System.out.println("\n" + "**********************************************");
-	System.out.println("Finished Test Suite; By Mahmoud El-Sharkawy! *");
+	System.out.println("Finished Test Suite; By Mahmoud ElSharkawy! *");
 	System.out.println("**********************************************" + "\n");
 	ExtentReport.flushReports();
     }
@@ -102,6 +102,7 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
 	    } else {
 		ExtentReport.removeTest(testResult.getName());
 	    }
+//	    ExtentReport.removeTest(testResult.getName());
 	} else {
 	    System.out.println("Starting Test Case: [" + testResult.getName() + "]");
 	}

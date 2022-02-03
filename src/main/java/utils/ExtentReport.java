@@ -18,7 +18,7 @@ public class ExtentReport {
 	report.attachReporter(spark);
 	spark.config().setTheme(Theme.STANDARD);
 	spark.config().setDocumentTitle("Extent Report");
-	spark.config().setReportName("Automation-Practice Extent Report Demo");
+	spark.config().setReportName("Automation-Practice Extent Report");
 
     }
 
