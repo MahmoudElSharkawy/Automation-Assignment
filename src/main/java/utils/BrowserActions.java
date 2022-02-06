@@ -25,7 +25,7 @@ public class BrowserActions {
     public static void navigateToUrl(WebDriver driver, String url) {
 	try {
 	    Logger.logStep("[Browser Action] Navigate to URL [" + url + "]");
-	    driver.get(url);
+	    driver.navigate().to(url);
 	    ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 	} catch (Exception e) {
 	    Logger.logStep(e.getMessage());
