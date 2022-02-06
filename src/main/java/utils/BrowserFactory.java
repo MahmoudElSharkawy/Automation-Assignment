@@ -21,7 +21,7 @@ import io.qameta.allure.Step;
 public class BrowserFactory {
 //    private static WebDriver driver;
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    private static String propertiesFileName = "automationPractice.properties";
+    private static String propertiesFileName = "utils.properties";
     private static String browserTypeProperty = PropertiesReader.getProperty(propertiesFileName, "browser.type");
     private static String executionTypeProperty = PropertiesReader.getProperty(propertiesFileName, "execution.type");
     private static String host = PropertiesReader.getProperty(propertiesFileName, "remote.execution.host");

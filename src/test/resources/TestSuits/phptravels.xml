@@ -4,8 +4,7 @@
   
   <test name="PHPTRAVELS">
     <classes>
-      <class name="phptravels.tests.Gui_SignUp_Test"/>
-      <class name="phptravels.tests.Gui_Login_Test"/>
+      <class name="phptravels.gui.tests.AdminUserTests"/>
     </classes>
   </test> <!-- PHPTRAVELS-->
   

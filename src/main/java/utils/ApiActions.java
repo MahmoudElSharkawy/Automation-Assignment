@@ -21,7 +21,6 @@ import io.restassured.specification.ResponseSpecification;
 import io.restassured.specification.SpecificationQuerier;
 
 public class ApiActions {
-    // TODO: implement getResponseJSONPath and getBody methods
     private RequestSpecification request;
     private Response response;
     private QueryableRequestSpecification queryableRequestSpecs;
