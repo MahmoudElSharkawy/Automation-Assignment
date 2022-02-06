@@ -16,20 +16,31 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 15
+    - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
-        java-version: 15
+        java-version: 17
         distribution: 'zulu'
     - name: Set up Native Selenium Grid with one hub and four Chrome nodes 
-      run: docker-compose -f src/main/resources/docker-compose.yml up --scale chrome=4 --remove-orphans -d
+      run: docker-compose -f src/main/resources/docker-compose_native.yml up --scale chrome=4 --remove-orphans -d
     - name: Check running containers
       run: docker ps
     - name: Run tests - Chrome Headless
       continue-on-error: true
-      run: mvn -Dtest=phptravels.gui.tests.*Test test
-    - name: ExtentReports HTML Test Report
+      run: mvn test -Dtest=phptravels.gui.tests.*Tests
+    - name: Generate Allure report
+      run: mvn allure:report
+    - name: Copy patch file to allure-maven-plugin folder
+      run: cp src/main/resources/allow-file-access_open-report_chrome_windows.bat target/site/allure-maven-plugin
+    - name: Check files in the allure-maven-plugin folder
+      run: ls target/site/allure-maven-plugin
+    - name: Upload Allure Report
       uses: actions/upload-artifact@v2
       with:
-        name: ExtentReports HTML Test Report
+        name: Allure Report
+        path: "target/site/allure-maven-plugin"
+    - name: Upload Extent Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: Extent Report
         path: "ExtentReports.html"
