@@ -152,7 +152,7 @@ public class ElementActions {
 	    actions.moveToElement(driver.findElement(elementLocator)).perform();
 	} catch (Exception e) {
 	    Logger.logStep(e.getMessage());
-	    fail(e.getMessage());
+//	    fail(e.getMessage());
 	}
     }
 

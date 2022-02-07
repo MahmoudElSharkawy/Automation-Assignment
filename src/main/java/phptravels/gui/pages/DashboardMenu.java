@@ -1,22 +1,20 @@
 package phptravels.gui.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import io.qameta.allure.Step;
-import utils.BrowserActions;
 import utils.ElementActions;
-import utils.PropertiesReader;
 
 public class DashboardMenu {
     private WebDriver driver;
-    private String url = "https://phptravels.net/api/admin";
 
     // Elements Locators
-    private By email_input = By.name("email");
-    private By password_input = By.name("password");
-    
+    private final By dashboardMenu_button = By.id("drawerToggle");
+    private final By navigation_body = By.xpath("//body[contains(@class,'nav-fixed')]");
+    private final By Accounts_linkText = By.xpath("//a[contains(.,'Accounts')]");
+    private final By Admins_linkText = By.xpath("//a[contains(.,'Admins')]");
+
     // Constructor
     public DashboardMenu(WebDriver driver) {
 	this.driver = driver;
@@ -25,16 +23,14 @@ public class DashboardMenu {
     //////////////////////////////////////////////////////////////////
     //////////////////////////// Actions ////////////////////////////
 
-    @Step("Navigate to Admin Login page")
-    public void navigateToAdminLoginPage() {
-	BrowserActions.navigateToUrl(driver, url);
-    }
-
-    public void loginAsDefaultAdminUser() {
+    @Step("Navigate to Admin Page")
+    public void navigateToAdminsPage() {
+	if (!ElementActions.getAttributeValue(driver, navigation_body, "class").contains("drawer-toggled")) {
+	    ElementActions.click(driver, dashboardMenu_button);
+	}
 	new ElementActions(driver)
-	.type(email_input, PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserEmail"))
-	.type(password_input, PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserPassword"))
-	.clickKeyboardKey(password_input, Keys.ENTER);
+	.click(Accounts_linkText)
+	.click(Admins_linkText);
     }
 
 }

@@ -30,6 +30,7 @@ public class AdminLoginPage {
 	BrowserActions.navigateToUrl(driver, url);
     }
 
+    @Step("Login as default Admin User")
     public void loginAsDefaultAdminUser() {
 	new ElementActions(driver)
 	.type(email_input, PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserEmail"))
