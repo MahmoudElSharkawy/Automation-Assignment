@@ -16,7 +16,7 @@ public class AdminLoginPage {
     // Elements Locators
     private By email_input = By.name("email");
     private By password_input = By.name("password");
-    
+
     // Constructor
     public AdminLoginPage(WebDriver driver) {
 	this.driver = driver;
@@ -31,11 +31,17 @@ public class AdminLoginPage {
     }
 
     @Step("Login as default Admin User")
-    public void loginAsDefaultAdminUser() {
+    public void loginAsAdminUser(String email, String password) {
 	new ElementActions(driver)
-	.type(email_input, PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserEmail"))
-	.type(password_input, PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserPassword"))
-	.clickKeyboardKey(password_input, Keys.ENTER);
+		.type(email_input, email)
+		.type(password_input, password)
+		.clickKeyboardKey(password_input, Keys.ENTER);
+    }
+
+    @Step("Login as default Admin User")
+    public void loginAsDefaultAdminUser() {
+	loginAsAdminUser(PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserEmail"),
+		PropertiesReader.getProperty("phptravels.properties", "defaultAdminUserPassword"));
     }
 
 }

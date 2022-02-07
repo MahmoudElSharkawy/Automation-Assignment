@@ -37,7 +37,7 @@ public class AdminsPage {
     }
 
     //////////////////////////////////////////////////////////////////
-    //////////////////////////// Actions ////////////////////////////
+    /////////////////////////// Assertions //////////////////////////
 
     @Step("Navigate to Admins Add page")
     public void navigateToAdminsAddPage() {
@@ -54,7 +54,9 @@ public class AdminsPage {
 	.type(email_input, email)
 	.type(password_input, password)
 	.type(mobile_input, mobileNumber)
-	.click(country_span).type(countrySearch_input, country).click(searchResult_span(country))
+	.click(country_span)
+	.type(countrySearch_input, country)
+	.click(searchResult_span(country))
 	.type(address1_input, address1)
 	.type(address2_input, address2)
 	.click(updateSettings_button);
