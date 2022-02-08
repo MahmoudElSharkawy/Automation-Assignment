@@ -22,3 +22,9 @@ Test Automation Assignment
 * Can find the test suite xml file in the *src/test/resources* folder inside the *TestSuites* folder
 * To start executing the test classes, you can right click on the *phptravels.xml* folder and then click "Run As" > "TestNG Suite"
 * After executing, you can easily generate the ***Allure Report*** by opening a commandline terminal on the project root path and type `mvn allure:serve` (needs to be able to execute mvn commands); Or you can find the Extent Report ***ExtentReports.html*** in the project root path for the latest execution
+
+### How to see the execution and the test report from the GitHub Actions:
+* Click on the *"Actions"* tab 
+* Click on the latest workflow run link 
+* Click on "Test on Ubuntu" and open "Run tests - Chrome Headless" to see the execution logs
+* And you can check the execution reports by clicking on "ExtentReport" and/or "Allure Report" in the *Artifacts* section (Just download, unzip and open it)
