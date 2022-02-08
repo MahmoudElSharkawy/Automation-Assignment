@@ -11,7 +11,8 @@ public class DashboardMenu {
 
     // Elements Locators
     private final By dashboardMenu_button = By.id("drawerToggle");
-    private final By navigation_body = By.xpath("//body[contains(@class,'nav-fixed')]");
+//    private final By navigation_body = By.xpath("//body[contains(@class,'nav-fixed')]");
+    private final By dashboardMenu = By.className("drawer-menu");
     private final By Accounts_linkText = By.xpath("//a[contains(.,'Accounts')]");
     private final By Admins_linkText = By.xpath("//a[contains(.,'Admins')]");
     private final By locationsMenu_linkText = By.xpath("//a[@data-bs-target='#Locations']");
@@ -42,7 +43,8 @@ public class DashboardMenu {
     }
     
     private void openDashboardIfClosed() {
-	if (!ElementActions.getAttributeValue(driver, navigation_body, "class").contains("drawer-toggled")) {
+//	!ElementActions.getAttributeValue(driver, navigation_body, "class").contains("drawer-toggled")
+	if (!driver.findElement(dashboardMenu).isDisplayed()) {
 	    ElementActions.click(driver, dashboardMenu_button);
 	}
     }
