@@ -64,7 +64,6 @@ public class AdminUserTests {
     public void setup() {
 	spreadSheet = new ExcelFileManager(new File("src/test/resources/TestData/AdminUserTestData.xlsx"));
 	spreadSheet.switchToSheet("adminUser");
-	spreadSheet.getCellData("Email");
 	
 	driver = BrowserFactory.getBrowser();
 	

@@ -167,7 +167,7 @@ public class ApiActions {
 	}
     }
 
-    public static List<Object> getResponseJSONValueAsList(Response response, String jsonPath) {
+    public static List<Object> getResponseJsonValueAsList(Response response, String jsonPath) {
 	List<Object> listValue = null;
 	try {
 	    listValue = response.jsonPath().getList(jsonPath);
