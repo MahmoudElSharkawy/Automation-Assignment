@@ -4,8 +4,8 @@
   
   <test name="Full Execution">
     <classes>
-      <class name="phptravels.gui.tests.AdminUserTests"/>
-      <class name="jsonPlaceholder.api.tests.JsonPlaceholderTests"/>
+      <class name="phptravels.gui.tests.SigninTests"/>
+      <class name="phptravels.gui.tests.SignupTests"/>
     </classes>
   </test> <!-- PHPTRAVELS-->
   
