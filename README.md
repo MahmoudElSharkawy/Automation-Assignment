@@ -21,9 +21,6 @@ Test Automation Assignment
 #### For GUI PHPTRAVELS Test Cases: 
 * A properties file ***"phptravels.properties"*** can be found it *src/main/resources* file path including all the configurations/global test data needed in the execution for the tests
 * Can find the test cases in the *src/test/java* folder inside the *phptravels.gui.tests* package "JsonPlaceholderTests"
-#### For APIs Jsonplaceholder Test Cases:
-* A properties file ***"jsonplaceholder.properties"*** can be found it *src/main/resources* file path including all the configurations/global test data needed in the execution for the tests
-* Can find the test cases in the *src/test/java* folder inside the *jsonplaceholder.api.tests* package "AdminUserTests"
 #### Execution
 * Can execute each class sperately
 * Or an find the test suite xml file in the *src/test/resources* folder inside the *TestSuites* folder; To start executing the test classes, you can right click on the FullExecution.xml* folder and then click "Run As" > "TestNG Suite"
